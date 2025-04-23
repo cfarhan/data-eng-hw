@@ -45,6 +45,7 @@ def validate_salary_normality(salaries):
     plt.title("Histogram of Salaries")
     plt.xlabel("Salary")
     plt.ylabel("Frequency")
+    plt.gca().get_xaxis().set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:,.0f}'))
     plt.show()
 
 csv_file_path = 'employees.csv'
