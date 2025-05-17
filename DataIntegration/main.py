@@ -68,6 +68,10 @@ census_df = census_df.drop(columns=['State'])
 # Join the result with census_df
 join_df = join_df.join(census_df, how='inner')
 
+# Add per capita metrics
+join_df['CasesPerCap'] = join_df['Cases'] / join_df['TotalPop']
+join_df['DeathsPerCap'] = join_df['Deaths'] / join_df['TotalPop']
+
 print(f'join_df: \n {join_df.head()}')
 print(f'Number of rows in join_df: {len(join_df)}')
 
